@@ -1,0 +1,47 @@
+{
+  "name": "game-grove",
+  "version": "1.0.0",
+  "description": "An application for Gamers.",
+  "main": "www/server.js",
+  "scripts": {
+    "start": "node www/server.js",
+    "build": "react-scripts build"
+  },
+  "keywords": [
+    "novels",
+    "ai",
+    "master"
+  ],
+  "author": "Hamza Khan",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@vercel/edge-config": "^1.2.0",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.9",
+    "express": "^4.17.1",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.18.0",
+    "formidable": "^3.5.1",
+    "fs": "0.0.1-security",
+    "gradle": "^1.2.4",
+    "helmet": "^7.1.0",
+    "multer": "^1.4.5-lts.1",
+    "multiparty": "^4.2.3",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.10.2",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "vercel": "^32.3.0"
+  },
+  "devDependencies": {
+    "cordova-android": "^12.0.1"
+  },
+  "cordova": {
+    "platforms": [
+      "android"
+    ]
+  }
+}

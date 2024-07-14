@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button State Change</title>
+</head>
+
+<body>
+
+  <h1>Button State Change</h1>
+
+  <form id="buttonStateForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required readonly>
+    <br>
+    <label for="buttonState">Button State:</label>
+    <select id="buttonState" name="buttonState" required>
+      <option value="on">On</option>
+      <option value="off">Off</option>
+    </select>
+    <br>
+    <button type="submit">Change Button State</button>
+  </form>
+
+  <div id="sidebar">
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    <div id="userDisplay">
+        <img src="default-profile.png" alt="Avatar" id="avatar">
+        <p id="username">John Doe</p> <!-- Replace with the user's actual username -->
+    </div>
+    <nav>
+        <ul>
+            <li><a href="test.html">Home</a></li>
+            <li><a href="ai_technologies.html">AI Technologies</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="LoginPage.html" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+</div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async function () {
+      // Fetch user data from the server
+      const response = await fetch('/api/user-data'); // Replace with the actual endpoint
+      const userData = await response.json();
+
+      // Update the form with user data
+      document.getElementById('username').value = userData.username;
+      document.getElementById('buttonState').value = userData.buttons.on ? 'on' : 'off';
+
+      // Handle form submission
+      document.getElementById('buttonStateForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        const username = document.getElementById('username').value;
+        const buttonState = document.getElementById('buttonState').value;
+
+        // Update button state on the server
+        const updateResponse = await fetch('/api/button-state', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            username,
+            buttonState,
+          }),
+        });
+
+        // Handle the response (you may want to provide user feedback)
+        const updateData = await updateResponse.json();
+        console.log(updateData);
+      });
+    });
+  </script>
+
+</body>
+
+</html>

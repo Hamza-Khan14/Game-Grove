@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Card</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/EditProfileStyles.css">
+</head>
+<body>
+    <div class="card-container">
+        <div class="card-top-navigation">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </li>
+            </ul>
+        </div>
+        <div class="user-image">
+            <input type="file" id="profile-image" name="profile-image">
+            <label for="profile-image"><i class="fa fa-camera"></i></label>
+            <img id="profile-img" src="images/default-profile.png" alt="User Image">
+        </div>
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" >
+        </div>
+        <div>
+            <label for="about">About:</label>
+            <textarea id="about" name="about" rows="5" cols="50"></textarea>
+        </div>
+        <button class="save">Save</button>
+        <div class="social-container">
+            <a href="#" class="social-item instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#" class="social-item youtube">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a href="#" class="social-item twitter">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+        </div>
+    </div>
+    <script src="js/EditScript.js"></script>
+</body>
+</html>

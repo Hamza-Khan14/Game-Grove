@@ -1,0 +1,17 @@
+button {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .on {
+    background-color: green;
+    color: white;
+  }
+  
+  .off {
+    background-color: red;
+    color: white;
+  }
+  
