@@ -4,8 +4,7 @@
   "description": "An application for Gamers.",
   "main": "www/server.js",
   "scripts": {
-    "start": "node www/server.js",
-    "build": "react-scripts build"
+    "start": "node www/server.js"
   },
   "keywords": [
     "novels",

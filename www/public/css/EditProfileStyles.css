@@ -7,7 +7,7 @@
 }
 
 body{
-    background: url('images/profile-bckground.jpg');
+    background: url('images/profile-bckground.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 

@@ -15,7 +15,7 @@ const fs = require('fs').promises;
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 3306;
 
 app.use(session({
   secret: process.env.SESSION_SECRET || 'w7IkD3AY4auX7DsoH9EFtRHXqpYWPZ0iNwsZVp5xhEGnNl8v9MSJUDXbiUjTKd0lsa',
@@ -24,10 +24,10 @@ app.use(session({
 }));
 
 const pool = mysql.createPool({
-  host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || 'UserUnrealGame#123',
-  database: process.env.DB_DATABASE || 'essential',
+  host: process.env.DB_HOST || '',
+  user: process.env.DB_USER || '',
+  password: process.env.DB_PASSWORD || '',
+  database: process.env.DB_DATABASE || '',
 });
 
 const connectToDatabase = async () => {

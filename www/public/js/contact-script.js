@@ -15,11 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
     updateProfile(); // Call updateProfile after DOM has loaded
 });
 
-function toggleMenu() {
-    var sidebar = document.getElementById("sidebar");
-    sidebar.style.width = (sidebar.style.width === "250px") ? "0" : "250px";
-}
-
 // Fetch user profile data
 async function fetchUserProfile() {
     try {
