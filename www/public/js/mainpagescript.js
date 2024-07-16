@@ -41,9 +41,9 @@ async function updateUserData() {
 
     if (userProfile) {
         profileImg.src = userProfile.profilePic || 'images/default-profile.png';
-        userNameElem.textContent = userProfile.username || 'Username not found';
+        userNameElem.textContent = userProfile.username || 'Login First!';
     } else {
-        userNameElem.textContent = 'Username not found';
+        userNameElem.textContent = 'Login First!';
     }
 
     console.log('Profile image source:', profileImg.src); // Debug statement

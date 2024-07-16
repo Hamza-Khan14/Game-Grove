@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var menuIcon = document.getElementById("menuIcon");
     var sidebar = document.getElementById("sidebar");
     var mainContent = document.querySelector(".wrapper");
+    var logoutButton = document.getElementById("logoutButton");
 
     if (menuIcon) {
         menuIcon.addEventListener('click', function() {
@@ -12,8 +13,35 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error("Menu icon not found");
     }
 
+    if (logoutButton) {
+        logoutButton.addEventListener('click', logout);
+    } else {
+        console.error("Logout button not found");
+    }
+
     updateProfile(); // Call updateProfile after DOM has loaded
 });
+
+// Logout function
+async function logout() {
+    try {
+        const response = await fetch('/logout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            // Redirect to login page after successful logout
+            window.location.href = '/login';
+        } else {
+            console.error('Logout failed:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error during logout:', error);
+    }
+}
 
 // Fetch user profile data
 async function fetchUserProfile() {
@@ -39,9 +67,9 @@ async function updateProfile() {
 
     if (userProfile) {
         profileImg.src = userProfile.profilePic || 'images/default-profile.png';
-        userNameElem.textContent = userProfile.username || 'Username not found';
+        userNameElem.textContent = userProfile.username || 'Login First!';
     } else {
-        userNameElem.textContent = 'Username not found';
+        userNameElem.textContent = 'Login First!';
     }
 
     console.log('Profile image source:', profileImg.src); // Debug statement

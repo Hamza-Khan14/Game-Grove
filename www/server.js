@@ -81,18 +81,6 @@ async function loadQuery(queryName) {
 
 const usersDirectory = path.join(__dirname, 'users');
 
-async function ensureUserDirectoryExists() {
-  try {
-    await fs.access(usersDirectory);
-  } catch (error) {
-    if (error.code === 'ENOENT') {
-      await fs.mkdir(usersDirectory);
-    } else {
-      console.error('Error accessing users directory:', error);
-      throw error;
-    }
-  }
-}
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -278,6 +266,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+app.get('/landing-page', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 app.get('/about', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'about.html'));
 });
@@ -301,6 +293,22 @@ app.get('/user-profile', isAuthenticated, (req, res) => {
 app.get('/edit-profile', isAuthenticated, (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'EditProfile.html'));
 });
+
+app.post('/logout', (req, res, next) => {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+    req.session.destroy((err) => {
+      if (err) {
+        return next(err);
+      }
+      res.clearCookie('connect.sid'); // Clear the session cookie
+      res.redirect('/login'); // Redirect to the login page
+    });
+  });
+});
+
 
 app.post('/api/register', async (req, res) => {
   const { username, email, password } = req.body;
