@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="css/registeration-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-SZXxX4whJ79/gErwcOYfzMEY5s1xsG6E0r7F9DPLqdb8MAc/iQyn1TnF9ZZT2NV4" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="registration-container">
+        <div class="registration-box">
+            <center><h2>Register</h2></center>
+            <form id="registerForm" action="/api/register" method="post" onsubmit="return validateForm()">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="password" id="password" placeholder="Password" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" required>
+                </div>
+                <p id="passwordError" class="error"></p>
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="/login">Login here</a></p>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            var passwordError = document.getElementById("passwordError");
+
+            if (password !== confirmPassword) {
+                passwordError.innerText = "Passwords do not match!";
+                return false;
+            } else {
+                passwordError.innerText = "";
+                return true;
+            }
+        }
+    </script>
+</body>
+
+</html>
+  

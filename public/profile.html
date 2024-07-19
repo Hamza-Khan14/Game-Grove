@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameGrove User Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/profile-styles.css">
+</head>
+<body>
+    <div class="sidebar-container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="/landing-page"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/about"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="/contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="/games"><i class="fas fa-gamepad"></i> Games</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card-container">
+        <div class="card-top-navigation">
+            <li>
+                <i class="fa-solid fa-arrow-left" id="back-button"></i>
+            </li>
+            <ul>
+                <i id="heart" class="fa-regular fa-heart"></i>
+                <i id="menu-toggle" class="fa-solid fa-bars"></i>
+            </ul>
+        </div>
+        <div class="user-image">
+            <img id="profile-img" src="" alt="User Image">
+        </div>
+        <h2 class="user-name"></h2>
+        <p class="user-email"></p>
+
+        <div class="about-section">
+            <h3>About</h3>
+            <p class="about-user"></p>
+        </div>
+
+        <div class="additional-info">
+            <div class="info-section">
+                <h3>Favorite Games</h3>
+                <ul class="user-games"></ul>
+            </div>
+            <div class="info-section">
+                <h3>Gaming Skills</h3>
+                <div class="skill-bars"></div>
+            </div>
+        </div>
+
+        <button class="edit" onclick="editProfile()">Edit Profile</button>
+
+        <div class="social-container">
+            <div class="social-item steam">
+                <i class="fa-brands fa-steam"></i>
+            </div>
+            <div class="social-item twitch">
+                <i class="fa-brands fa-twitch"></i>
+            </div>
+            <div class="social-item discord">
+                <i class="fa-brands fa-discord"></i>
+            </div>
+        </div>
+    </div>
+    <script src="js/profile-script.js"></script>
+</body>
+</html>

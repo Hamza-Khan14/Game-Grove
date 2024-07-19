@@ -1,0 +1,181 @@
+body {
+    background: url('images/fortniteBackground.jpg') no-repeat center center fixed;
+    background-size: cover; /* Ensure the background covers the whole page */
+    color: #f8f5ec; /* Light text color */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+    z-index: -1; /* Ensure the overlay is behind the content */
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1;
+
+}
+
+.logo h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #2c2c2c;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 20px;
+    z-index: 1;
+}
+
+.login-box {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 300px;
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    color: #bdc3c7;
+}
+
+.input-group input {
+    width: calc(100% - 30px);
+    padding: 10px;
+    padding-left: 30px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    outline: none;
+    color: #fff;
+    background-color: rgba(29, 29, 29, 0.8);
+}
+
+/* Style for autofill */
+.input-group input:-webkit-autofill {
+    box-shadow: 0 0 0 30px rgba(29, 29, 29, 0.8) inset;
+    -webkit-box-shadow: 0 0 0 30px rgba(29, 29, 29, 0.8) inset;
+    -webkit-text-fill-color: #fff !important;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+button:hover {
+    background-color: #005f99;
+}
+
+p {
+    color: #bdc3c7;
+    margin-top: 15px;
+}
+
+a {
+    color: #007acc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 24px;
+}
+
+.social-icons a:hover {
+    color: #007acc;
+}
+
+/* Add styles for the error message */
+.error {
+    color: #e74c3c;
+    margin-top: 15px;
+    font-size: 14px;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameGrove</title>
+    <link rel="stylesheet" type="text/css" href="css/indexStyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <header>
+        <div class="logo">
+            <h1>GameGrove</h1>
+        </div>
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="/welcome"><i class="fas fa-star"></i> Welcome</a></li>
+                <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="/login" id="login-link"><i class="fas fa-user"></i> Login</a></li>
+            </ul>
+        </nav>
+        <button id="sidebar-toggle" class="sidebar-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+    
+    <nav class="sidebar">
+        <ul>
+            <li><a href="/welcome"><i class="fas fa-star"></i> Welcome</a></li>
+            <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="/contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li><a href="/login" id="sidebar-login-link"><i class="fas fa-user"></i> Login</a></li>
+        </ul>
+    </nav>    
+    <main>
+        <section id="home" class="hero parallax-section">
+            <div class="hero-content">
+                <h2>Welcome to GameGrove</h2>
+                <p>Your ultimate gaming destination.</p>
+                <a href="#features" class="cta-button">Discover More</a>
+            </div>
+        </section>
+        <section id="features" class="features">
+            <h2>Features</h2>
+            <div class="feature-grid">
+                <div class="feature" onclick="toggleDescription(this)">
+                    <i class="fas fa-gamepad feature-icon"></i>
+                    <h4>Smart Detection</h4>
+                    <p>Experience seamless gameplay with our advanced detection system that enhances accuracy and responsiveness.</p>
+                    <p class="feature-description" style="display: none;">Our Smart Detection system uses AI to provide real-time adjustments, ensuring fair play and optimal performance.</p>
+                </div>
+                <div class="feature" onclick="toggleDescription(this)">
+                    <i class="fas fa-trophy feature-icon"></i>
+                    <h4>Amazing Leaderboard System</h4>
+                    <p>Climb the ranks with our dynamic leaderboard, showcasing top players and fostering healthy competition.</p>
+                    <p class="feature-description" style="display: none;">Compete globally or locally, with daily, weekly, and all-time rankings to keep the competition exciting.</p>
+                </div>
+                <div class="feature" onclick="toggleDescription(this)">
+                    <i class="fas fa-users feature-icon"></i>
+                    <h4>TeamUp with Friends</h4>
+                    <p>Collaborate and strategize with your friends effortlessly using our intuitive team-up feature.</p>
+                    <p class="feature-description" style="display: none;">Create or join teams, chat in real-time, and coordinate your gameplay for the ultimate multiplayer experience.</p>
+                </div>
+            </div>
+        </section>
+        <section id="game-catalog" class="game-catalog">
+            <h2>Featured Games</h2>
+            <div class="game-grid">
+                <div class="game-card">
+                    <img src="images/Game1.png" alt="Cyberpunk 2077" loading="lazy">
+                    <h3>Cyberpunk 2077</h3>
+                    <p>An open-world action-adventure RPG set in a dystopian future.</p>
+                </div>
+                <div class="game-card">
+                    <img src="images/Game2.png" alt="The Legend of Zelda: Breath of the Wild" loading="lazy">
+                    <h3>The Legend of Zelda: Breath of the Wild</h3>
+                    <p>An action-adventure game set in a vast, open world of Hyrule.</p>
+                </div>
+                <div class="game-card">
+                    <img src="images/Game3.png" alt="Red Dead Redemption 2" loading="lazy">
+                    <h3>Red Dead Redemption 2</h3>
+                    <p>An epic tale of life in America's unforgiving heartland.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <br><br><br>
+    <footer>
+        <div class="footer-content">
+            <br><br><br><br><br>
+            <h4>Contact Us</h4>
+            <p>Email: contact@gamegrove.com</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <form id="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" onclick="setupNewsletterForm()">Subscribe</button>
+                <br><br><br><br><br><br><br>
+            </form>
+        </div>
+    </footer>
+    <br><br><br>
+    <div class="spinner"></div>
+    <script src="js/indexScripts.js"></script>
+</body>
+</html>
