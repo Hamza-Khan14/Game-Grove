@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile Card</title>
+    <title>GameGrove User Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -14,16 +14,17 @@
     <div class="sidebar-container">
         <div class="sidebar">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="/landing-page"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/about"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="/contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="/games"><i class="fas fa-gamepad"></i> Games</a></li>
             </ul>
         </div>
     </div>
     <div class="card-container">
         <div class="card-top-navigation">
             <li>
-                <i class="fa-solid fa-arrow-left"></i>
+                <i class="fa-solid fa-arrow-left" id="back-button"></i>
             </li>
             <ul>
                 <i id="heart" class="fa-regular fa-heart"></i>
@@ -43,28 +44,26 @@
 
         <div class="additional-info">
             <div class="info-section">
-                <h3>Hobbies</h3>
-                <p class="user-hobbies"></p>
+                <h3>Favorite Games</h3>
+                <ul class="user-games"></ul>
             </div>
             <div class="info-section">
-                <h3>Skills</h3>
-                <p class="user-skills"></p>
+                <h3>Gaming Skills</h3>
+                <div class="skill-bars"></div>
             </div>
         </div>
 
-        <button class="edit" onclick="editProfile()">Edit</button>
+        <button class="edit" onclick="editProfile()">Edit Profile</button>
 
         <div class="social-container">
-            <div class="social-item instagram">
-                <i class="fa-brands fa-instagram"></i>
+            <div class="social-item steam">
+                <i class="fa-brands fa-steam"></i>
             </div>
-            <a href="https://youtube.com/@muzlikgamer">
-                <div class="social-item youtube">
-                    <i class="fa-brands fa-youtube"></i>
-                </div>
-            </a>
-            <div class="social-item twitter">
-                <i class="fa-brands fa-twitter"></i>
+            <div class="social-item twitch">
+                <i class="fa-brands fa-twitch"></i>
+            </div>
+            <div class="social-item discord">
+                <i class="fa-brands fa-discord"></i>
             </div>
         </div>
     </div>

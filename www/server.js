@@ -309,6 +309,13 @@ app.post('/logout', (req, res, next) => {
   });
 });
 
+app.get('/auth/status', (req, res) => {
+  if (req.isAuthenticated()) {
+    res.json({ isAuthenticated: true });
+  } else {
+    res.json({ isAuthenticated: false });
+  }
+});
 
 app.post('/api/register', async (req, res) => {
   const { username, email, password } = req.body;
