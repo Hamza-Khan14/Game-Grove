@@ -1,21 +1,30 @@
-function toggleMenu() {
-    var menuItems = document.getElementById("menuItems");
-    menuItems.style.display = (menuItems.style.display === "block") ? "none" : "block";
-}
+document.addEventListener('DOMContentLoaded', function() {
+    initializeParticles();
+});
 
-// Check if the user is logged in (replace with your authentication logic)
-var loggedInUser = sessionStorage.getItem('loggedInUser');
-
-if (loggedInUser) {
-    // Display the logged-in user's name
-    document.getElementById('loggedInUser').style.display = 'block';
-    document.getElementById('usernameDisplay').innerText = loggedInUser;
-}
-
-// Check if there is an error message and display it
-var errorMessage = '<%= messages.error %>'; // Replace '<%= messages.error %>' with the actual value
+var errorMessage = '';
 
 if (errorMessage.trim() !== '') {
     document.getElementById('errorMessage').innerText += errorMessage;
     document.getElementById('errorMessage').style.display = 'block';
+}
+
+function initializeParticles() {
+    particlesJS('particles-js', {
+        particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: "#ffffff" },
+            shape: { type: "circle" },
+            opacity: { value: 0.5, random: false },
+            size: { value: 3, random: true },
+            line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+            move: { enable: true, speed: 6, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
+            modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+        },
+        retina_detect: true
+    });
 }

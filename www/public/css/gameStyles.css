@@ -1,0 +1,322 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0a192f, #172a45, #0a192f);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #fff;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+header {
+    background-color: rgba(10, 25, 47, 0.9);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1001;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    order: 1;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo span {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #ff3366;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.desktop-nav {
+    display: flex;
+    list-style: none;
+    order: 2;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.desktop-nav li {
+    margin-left: 30px;
+    position: relative;
+}
+
+.desktop-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+    padding: 10px 0;
+    order: 1;
+    margin-left: auto;
+}
+
+.desktop-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ff3366;
+    transition: width 0.3s ease;
+}
+
+.desktop-nav a:hover {
+    color: #ff3366;
+}
+
+.desktop-nav a:hover::after {
+    width: 100%;
+}
+
+.menu-icon {
+    order: 3;
+    margin-left: 20px;
+    display: none;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
+    background: linear-gradient(135deg, #4169e1, #ff3366);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    transition: all 0.3s ease;
+}
+
+.menu-icon:hover {
+    transform: rotate(90deg);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1002;
+    top: 0;
+    right: 0;
+    background: linear-gradient(135deg, rgba(10, 25, 47, 0.98), rgba(65, 105, 225, 0.98));
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar a {
+    padding: 20px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar a:hover {
+    background: linear-gradient(90deg, rgba(255, 51, 102, 0.2), transparent);
+    padding-left: 35px;
+    color: #ff3366;
+}
+
+.sidebar .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 36px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sidebar .close-btn:hover {
+    color: #ff3366;
+    transform: rotate(90deg);
+}
+
+.games-page .hero {
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+    padding: 150px 0;
+}
+
+.games-page .hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(65, 105, 225, 0.3), rgba(255, 51, 102, 0.3));
+    z-index: 1;
+}
+
+.games-page .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.games-page .hero-content h1 {
+    font-size: 4.5em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    animation: heroGlow 2s ease-in-out infinite alternate;
+}
+
+.games-page .hero-content p {
+    font-size: 1.8em;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+@keyframes heroGlow {
+    from { text-shadow: 0 0 5px #fff, 0 0 10px #4169e1; }
+    to { text-shadow: 0 0 10px #fff, 0 0 20px #ff3366; }
+}
+
+.games-content {
+    position: relative;
+    z-index: 2;
+    margin-top: -50px;
+    padding: 100px 20px;
+}
+
+.games-content h2 {
+    font-size: 3em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    text-align: center;
+    color: #4169e1;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.coming-soon {
+    background: linear-gradient(135deg, rgba(65, 105, 225, 0.1), rgba(255, 51, 102, 0.1));
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    transform: perspective(1000px) rotateX(5deg);
+    transition: all 0.3s ease;
+}
+
+.coming-soon:hover {
+    transform: perspective(1000px) rotateX(0deg) translateY(-10px);
+    box-shadow: 0 25px 50px rgba(65, 105, 225, 0.3);
+}
+
+.coming-soon h3 {
+    font-size: 3.5em;
+    margin-bottom: 30px;
+    background: linear-gradient(45deg, #4169e1, #ff3366);
+    background-clip: none;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.coming-soon p {
+    font-size: 1.4em;
+    line-height: 1.8;
+    color: #e0e0e0;
+}
+
+.games-content::before,
+.games-content::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(65, 105, 225, 0.2), transparent);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.games-content::before {
+    top: -100px;
+    left: -100px;
+}
+
+.games-content::after {
+    bottom: -100px;
+    right: -100px;
+}
+
+footer {
+    background: linear-gradient(135deg, #0a192f, #172a45);
+    color: #fff;
+    padding: 50px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .games-page .hero-content h1 {
+        font-size: 3em;
+    }
+
+    .games-page .hero-content p {
+        font-size: 1.4em;
+    }
+
+    .coming-soon h3 {
+        font-size: 2.5em;
+    }
+
+    .coming-soon p {
+        font-size: 1.2em;
+    }
+}

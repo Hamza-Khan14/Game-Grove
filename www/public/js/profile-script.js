@@ -2,10 +2,10 @@ const menuToggle = document.getElementById('menu-toggle');
 const sidebar = document.querySelector('.sidebar');
 const toggleHeart = document.getElementById('heart');
 
-// Toggle sidebar visibility and body blur
 menuToggle.addEventListener('click', () => {
-    sidebar.style.left = sidebar.style.left === '0px' ? '-220px' : '0px';
     document.body.classList.toggle('sidebar-open');
+    sidebar.style.left = document.body.classList.contains('sidebar-open') ? '0px' : '-300px';
+    menuToggle.style.left = document.body.classList.contains('sidebar-open') ? '230px' : '20px';
 });
 
 // Load heart state on page load
@@ -92,3 +92,22 @@ function editProfile() {
 
 // Update profile on page load
 window.onload = updateProfile;
+
+async function logout() {
+    try {
+        const response = await fetch('/logout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            window.location.href = '/login';
+        } else {
+            console.error('Logout failed:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error during logout:', error);
+    }
+}

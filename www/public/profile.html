@@ -9,8 +9,10 @@
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/profile-styles.css">
+    <link rel="icon" type="image/png" href="images/Logo.png">
 </head>
 <body>
+    <i id="menu-toggle" class="fa-solid fa-bars"></i>
     <div class="sidebar-container">
         <div class="sidebar">
             <ul>
@@ -18,52 +20,54 @@
                 <li><a href="/about"><i class="fas fa-info-circle"></i> About</a></li>
                 <li><a href="/contact"><i class="fas fa-envelope"></i> Contact</a></li>
                 <li><a href="/games"><i class="fas fa-gamepad"></i> Games</a></li>
+                <li><a href="" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>                
             </ul>
         </div>
     </div>
-    <div class="card-container">
-        <div class="card-top-navigation">
-            <li>
-                <i class="fa-solid fa-arrow-left" id="back-button"></i>
-            </li>
-            <ul>
-                <i id="heart" class="fa-regular fa-heart"></i>
-                <i id="menu-toggle" class="fa-solid fa-bars"></i>
-            </ul>
-        </div>
-        <div class="user-image">
-            <img id="profile-img" src="" alt="User Image">
-        </div>
-        <h2 class="user-name"></h2>
-        <p class="user-email"></p>
-
-        <div class="about-section">
-            <h3>About</h3>
-            <p class="about-user"></p>
-        </div>
-
-        <div class="additional-info">
-            <div class="info-section">
-                <h3>Favorite Games</h3>
-                <ul class="user-games"></ul>
+    <div class="main-content">
+        <div class="card-container">
+            <div class="card-top-navigation">
+                <li>
+                    <i class="fa-solid fa-arrow-left" id="back-button"></i>
+                </li>
+                <ul>
+                    <i id="heart" class="fa-regular fa-heart"></i>
+                </ul>
             </div>
-            <div class="info-section">
-                <h3>Gaming Skills</h3>
-                <div class="skill-bars"></div>
+            <div class="user-image">
+                <img id="profile-img" src="" alt="User Image">
             </div>
-        </div>
+            <h2 class="user-name"></h2>
+            <p class="user-email"></p>
 
-        <button class="edit" onclick="editProfile()">Edit Profile</button>
+            <div class="about-section">
+                <h3>About</h3>
+                <p class="about-user"></p>
+            </div>
 
-        <div class="social-container">
-            <div class="social-item steam">
-                <i class="fa-brands fa-steam"></i>
+            <div class="additional-info">
+                <div class="info-section">
+                    <h3>Favorite Games</h3>
+                    <ul class="user-games"></ul>
+                </div>
+                <div class="info-section">
+                    <h3>Gaming Skills</h3>
+                    <div class="skill-bars"></div>
+                </div>
             </div>
-            <div class="social-item twitch">
-                <i class="fa-brands fa-twitch"></i>
-            </div>
-            <div class="social-item discord">
-                <i class="fa-brands fa-discord"></i>
+
+            <button class="edit" onclick="editProfile()">Edit Profile</button>
+
+            <div class="social-container">
+                <div class="social-item steam">
+                    <i class="fa-brands fa-steam"></i>
+                </div>
+                <div class="social-item twitch">
+                    <i class="fa-brands fa-twitch"></i>
+                </div>
+                <div class="social-item discord">
+                    <i class="fa-brands fa-discord"></i>
+                </div>
             </div>
         </div>
     </div>

@@ -1,9 +1,37 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var loginLink = document.getElementById("login-link");
+    const sidebar = document.querySelector('.sidebar');
+    const menuIcon = document.querySelector('.menu-icon');
+    const closeBtn = document.querySelector('.close-btn');
+    const loginLink = document.getElementById("login-link");
+    const sidebarLinks = document.querySelectorAll('.sidebar a:not(.close-btn)');
+
+    function openSidebar() {
+        sidebar.style.width = '250px';
+        document.body.classList.add('sidebar-open');
+    }
+
+    function closeSidebar() {
+        sidebar.style.width = '0';
+        document.body.style.marginLeft = '0';
+        document.body.classList.remove('sidebar-open');
+    }
+
+    menuIcon.addEventListener('click', openSidebar);
+    closeBtn.addEventListener('click', closeSidebar);
+
+
+    document.addEventListener('click', function(event) {
+        if (!sidebar.contains(event.target) && event.target !== menuIcon) {
+            closeSidebar();
+        }
+    });
+
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', closeSidebar);
+    });
 
     if (loginLink) {
         loginLink.addEventListener('click', function(event) {
-
         });
     } else {
         console.error("Login link not found");
@@ -11,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     checkLoginStatus();
 });
-
 
 async function fetchUserProfile() {
     try {
@@ -41,18 +68,17 @@ async function checkLoginStatus() {
     }
 }
 
-
 function updateLoginLink(isLoggedIn) {
-    var loginLink = document.getElementById("login-link");
-    if (loginLink) {
-        if (isLoggedIn) {
+    const loginLink = document.getElementById("login-link");
+    const sidebarLoginLink = document.getElementById("sidebar-login-link");
+   
+    if (loginLink && sidebarLoginLink) {
+        const linkText = isLoggedIn ? ' Profile' : ' Login';
+        const linkHref = isLoggedIn ? '/profile' : '/login';
 
-            loginLink.href = '/profile';
-            loginLink.childNodes[1].textContent = ' Profile';
-        } else {
-
-            loginLink.href = '/login';
-            loginLink.childNodes[1].textContent = ' Login';
-        }
+        [loginLink, sidebarLoginLink].forEach(link => {
+            link.href = linkHref;
+            link.childNodes[1].textContent = linkText;
+        });
     }
 }

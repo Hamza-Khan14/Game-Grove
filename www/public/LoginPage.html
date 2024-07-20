@@ -6,10 +6,13 @@
       <title>Login</title>
       <link rel="stylesheet" type="text/css" href="css/styles.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      <link rel="icon" type="image/png" href="images/Logo.png">
 </head>
 <body>
   <header>
+    <div id="particles-js"></div>
     <div class="logo">
+      <img src="images/Logo-Purple.png">
       <h1>GameGrove</h1>
     </div>
     <nav>
@@ -32,22 +35,14 @@
           <i class="fas fa-lock"></i>
           <input type="password" name="password" placeholder="Password" required>
         </div>
+        <p id="errorMessage"></p>
         <button type="submit"><i class="fas fa-arrow-right"></i> Login</button>
       </form>
       <p>Don't have an account? <a href="/register"><i class="fas fa-user-plus"></i> Register here</a></p>
     </div>
   </div>
 
-  <footer>
-    <div class="footer-content">
-      <h3>Contact Us</h3>
-      <p>Email: contact@gamegrove.com</p>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-      </div>
-    </div>
-  </footer>
+
+  <script src="js/LoginScript.js"></script>
 </body>
 </html>

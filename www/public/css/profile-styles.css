@@ -11,13 +11,13 @@ body {
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
-    width: 100%;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow-x: hidden;
     transition: filter 0.3s ease-in-out;
+    padding: 20px;
 }
 
 @keyframes gradient {
@@ -29,14 +29,14 @@ body {
 .sidebar {
     position: fixed;
     top: 0;
-    left: -220px;
-    width: 220px;
+    left: -230px;
+    width: 230px;
     height: 100%;
     background: linear-gradient(45deg, #2b2b2b, #1a1a1a);
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
     transition: left 0.3s ease-in-out;
     padding-top: 2rem;
-    z-index: 5;
+    z-index: 1000;
 }
 
 .sidebar ul {
@@ -85,9 +85,10 @@ body {
 .card-container {
     background-color: rgba(31, 31, 32, 0.8);
     color: white;
-    padding: 3rem;
-    width: 25rem;
-    margin: 0.5rem;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 25rem;
+    margin: auto;
     border-radius: 0.4rem;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -101,6 +102,8 @@ body {
 .card-top-navigation {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
 }
 
 .card-top-navigation li,
@@ -110,7 +113,7 @@ body {
 }
 
 .card-top-navigation ul i {
-    margin-left: 10px;
+    margin-left: 15px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -123,7 +126,7 @@ body {
     position: relative;
     width: 100px;
     height: 100px;
-    margin: 0 auto;
+    margin: 0 auto 1.5rem;
 }
 
 .user-image img {
@@ -131,6 +134,8 @@ body {
     top: 0;
     left: 0;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     border: white 2px solid;
     border-radius: 50%;
     transition: transform 0.3s ease;
@@ -146,7 +151,7 @@ body {
 .additional-info,
 .social-container {
     text-align: center;
-    margin-top: 1.5rem;
+    margin-top: 1.2rem;
 }
 
 .user-name {
@@ -162,6 +167,7 @@ body {
 .info-section h3 {
     margin-bottom: 0.5rem;
     font-weight: 600;
+    color: #23a6d5;
 }
 
 .edit {
@@ -184,17 +190,19 @@ body {
 
 .social-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 100%;
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
 .social-item {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.5rem;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -204,62 +212,190 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.instagram {
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
-}
-
-.youtube {
-    background-color: #ff0000;
-}
-
-.twitter {
-    background-color: #1D9BF0;
-}
-
 .social-item i {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: white;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
 }
 
 .sidebar-open .sidebar {
     left: 0;
 }
 
-.sidebar-open body {
-    filter: blur(4px);
+.sidebar-open::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+}
+
+#menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #23a6d5;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, left 0.3s ease-in-out;
+    z-index: 1001;
+}
+
+#menu-toggle i {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.sidebar-open #menu-toggle {
+    transform: rotate(180deg);
+    left: 270px;
 }
 
 @media (max-width: 768px) {
-    .card-container {
-        width: 90%;
-        margin: 20px auto;
+    body {
+        padding: 10px;
     }
 
-    .sidebar-container {
-        width: 100%;
-        height: auto;
+    .card-container {
+        padding: 1.5rem;
+        max-width: 450px;
+    }
+
+    .user-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .card-top-navigation li,
+    .card-top-navigation ul {
+        font-size: 1rem;
+    }
+
+    .user-name {
+        font-size: 1.2rem;
+    }
+
+    .user-email,
+    .about-section p,
+    .info-section p {
+        font-size: 0.9rem;
+    }
+
+    .edit {
+        padding: 0.7rem 1.4rem;
+        font-size: 0.9rem;
+    }
+
+    .social-item {
+        width: 35px;
+        height: 35px;
+    }
+
+    .social-item i {
+        font-size: 1rem;
     }
 
     .sidebar {
-        width: 100%;
-        height: auto;
-        left: 0;
-        top: -100%;
-        transition: top 0.3s ease-in-out;
-    }
-
-    .sidebar ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        left: -100%;
+        width: 80%;
+        max-width: 300px;
     }
 
     .sidebar-open .sidebar {
-        top: 0;
+        left: 0;
+    }
+
+    .sidebar-open #menu-toggle {
+        left: calc(10% + 0px);
+    }
+}
+
+/* Existing CSS remains unchanged */
+
+/* Tablets and large phones */
+@media (min-width: 481px) and (max-width: 768px) {
+    .sidebar {
+        width: 70%;
+        max-width: 250px;
+    }
+
+    .sidebar-open #menu-toggle {
+        left: calc(70% + 20px);
+    }
+}
+
+/* Small tablets and large phones */
+@media (min-width: 569px) and (max-width: 768px) {
+    .sidebar {
+        width: 60%;
+        max-width: 280px;
+    }
+
+    .sidebar-open #menu-toggle {
+        left: calc(60% + 20px);
+    }
+}
+
+/* Large smartphones */
+@media (min-width: 415px) and (max-width: 568px) {
+    .sidebar {
+        width: 85%;
+        max-width: 300px;
+    }
+
+    .sidebar-open #menu-toggle {
+        left: calc(85% + 15px);
+    }
+}
+
+/* Small smartphones */
+@media (max-width: 414px) {
+    .sidebar {
+        width: 90%;
+        max-width: 280px;
+    }
+
+    .sidebar-open #menu-toggle {
+        left: calc(90% + 10px);
+    }
+
+    #menu-toggle {
+        width: 35px;
+        height: 35px;
+    }
+
+    #menu-toggle i {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .sidebar {
+        width: 95%;
+        max-width: 250px;
+    }
+
+    #menu-toggle {
+        width: 30px;
+        height: 30px;
+        top: 10px;
+        left: 10px;
+    }
+
+    .sidebar-open #menu-toggle {
+        left: auto;
+        right: 10px;
+    }
+
+    #menu-toggle i {
+        font-size: 0.9rem;
     }
 }
