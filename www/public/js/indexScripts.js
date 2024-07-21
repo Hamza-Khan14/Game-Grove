@@ -209,3 +209,9 @@ function showNotification(message, type = 'info') {
         setTimeout(() => notification.remove(), 300);
     }, 3000);
 }
+
+onpageload = function() {
+    setupParallaxEffect();
+    checkLoginStatus();
+    updateLoginLink(isLoggedIn);
+}

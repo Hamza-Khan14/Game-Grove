@@ -20,7 +20,12 @@ const port = process.env.PORT || 3306;
 app.use(session({
   secret: process.env.SESSION_SECRET || 'w7IkD3AY4auX7DsoH9EFtRHXqpYWPZ0iNwsZVp5xhEGnNl8v9MSJUDXbiUjTKd0lsa',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  cookie: {
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  }
+
 }));
 
 const pool = mysql.createPool({
@@ -28,6 +33,7 @@ const pool = mysql.createPool({
   user: process.env.DB_USER || '',
   password: process.env.DB_PASSWORD || '',
   database: process.env.DB_DATABASE || '',
+  connectionLimit: 10
 });
 
 const connectToDatabase = async () => {
@@ -365,6 +371,10 @@ app.use((req, res, next) => {
   res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
 });
 
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).sendFile(path.join(__dirname, 'public', '500.html'));
+});
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
